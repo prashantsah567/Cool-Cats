@@ -9,13 +9,15 @@ const MainView = () => {
     const [origin, setOrigin] = useState('USA');
     const [lifespan, setlifeSpan] = useState('lifespan');
     const [weight, setWeight] = useState('weight');
+    const [breedsId, setBreedsId] = useState(['beng', 'abys', 'pers', 'ebur', 'hima', 'chau', 'crex']);
     const [selectedCharacter, setSelectedCharacter] = useState([]);
+    const [banCharacter, setBanCharacter] = useState([]);
 
     //various breeds
-    const breedsID = ['beng', 'abys', 'pers', 'ebur', 'hima', 'chau', 'crex'];
-    const randBreedID = Math.floor(Math.random()*6);
+    //const breedsID = ['beng', 'abys', 'pers', 'ebur', 'hima', 'chau', 'crex'];
+    const randBreedID = Math.floor(Math.random()*(breedsId.length));
     
-    const url = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${breedsID[randBreedID]}&api_key=live_1Rg1VoeW1VUHhwEXBuDJP9PPCWw59UwD0V1p3yC9cUBxmcaGFljiGHb5ViAUYchA`;
+    const url = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${breedsId[randBreedID]}&api_key=live_1Rg1VoeW1VUHhwEXBuDJP9PPCWw59UwD0V1p3yC9cUBxmcaGFljiGHb5ViAUYchA`;
     const submitDiscoverBtn = async () =>{
         const response = await fetch(url);
         const data = await response.json();
@@ -31,6 +33,15 @@ const MainView = () => {
 
     const nameHandler = () =>{
         setSelectedCharacter([...selectedCharacter,name]);
+        setBanCharacter([...banCharacter,name]);
+        console.log(breedsId);
+        if(name=="Bengal") removeBreed("beng");
+        else if(name=="Abyssinian") removeBreed("abys");
+        else if(name=="Persian") removeBreed("pers");
+        else if(name=="European Burmese") removeBreed("ebur");
+        else if(name=="Himalayan") removeBreed("hima");
+        else if(name=="Chausie") removeBreed("chau");
+        else if(name=="Cornish Rex") removeBreed("crex");
     }
 
     const originHandler = () =>{
@@ -43,6 +54,17 @@ const MainView = () => {
 
     const weightHandler = () =>{
         setSelectedCharacter([...selectedCharacter,weight]);
+    }
+
+    //this is to not include breed name that is on the ban list
+    function removeBreed(breedToBeRemoved) {
+        let indexToRemove = breedsId.indexOf(breedToBeRemoved);
+        if(indexToRemove !== -1){
+            const newBreedsId = [...breedsId];
+            newBreedsId.splice(indexToRemove,1);
+            setBreedsId(newBreedsId);
+        }
+        console.log(breedsId);
     }
 
     return(
