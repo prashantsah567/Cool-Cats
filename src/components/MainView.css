@@ -1,5 +1,4 @@
 .containter{
-    /* margin-top: 2%; */
     display: flex;
     text-align: center;
 }
@@ -12,16 +11,16 @@
 #leftCard{
     margin: 0;
     width: 20%;
-    height: 80vh;
-    background-color:rgb(220, 195, 195);
+    height: 90vh;
+    background-color:#e895b5;
 }
 
 #rightCard{
     margin-right: 0;
     margin-top: 0;
     width: 20%;
-    height: 80vh;
-    background-color:rgb(220, 195, 195);
+    height: 90vh;
+    background-color:#e895b5;
 }
 
 #mainCard{
@@ -40,6 +39,7 @@
 }
 
 #hiddenImg{
+    display: flex;
     justify-content: center;
     align-items: center;
 }

@@ -3,7 +3,7 @@ import React from 'react';
 const LeftAddingImg = () =>{
     return(
         <div>
-            <p>This is the left side bar</p>
+            <h2>Who have we seen so far?</h2>
         </div>
     );
 }
