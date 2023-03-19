@@ -9,6 +9,8 @@ const MainView = () => {
     const [origin, setOrigin] = useState('USA');
     const [lifespan, setlifeSpan] = useState('lifespan');
     const [weight, setWeight] = useState('weight');
+    const [description, setDescription] = useState([]);
+    const [imageUrl, setImageUrl] = useState([]);
     const [breedsId, setBreedsId] = useState(['beng', 'abys', 'pers', 'ebur', 'hima', 'chau', 'crex']);
     const [selectedCharacter, setSelectedCharacter] = useState([]);
     const [banCharacter, setBanCharacter] = useState([]);
@@ -28,6 +30,9 @@ const MainView = () => {
         setOrigin(data[randomSelector].breeds[0].origin);
         setlifeSpan(data[randomSelector].breeds[0].life_span);
         setWeight(data[randomSelector].breeds[0].weight.imperial);
+        //for left card view of all viewed cats
+        setDescription([...description,data[randomSelector].breeds[0].description]);
+        setImageUrl([...imageUrl, data[randomSelector].url]);
         console.log(data);
     }
 
@@ -70,7 +75,7 @@ const MainView = () => {
     return(
         <div className='containter'>
             <div className='card' id="leftCard">
-                <LeftAddingImg />
+                <LeftAddingImg description={description} imageUrl={imageUrl}/>
             </div>
 
             <div className='card' id="mainCard">

@@ -10,17 +10,21 @@
 
 #leftCard{
     margin: 0;
-    width: 20%;
+    margin-top: 2.5%;
+    width: 25%;
     height: 90vh;
     background-color:#e895b5;
+    overflow: auto;
+    padding: 5px;
 }
 
 #rightCard{
     margin-right: 0;
-    margin-top: 0;
+    margin-top: 2.5%;
     width: 20%;
     height: 90vh;
     background-color:#e895b5;
+    overflow: auto;
 }
 
 #mainCard{
