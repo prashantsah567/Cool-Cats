@@ -1,0 +1,42 @@
+.containter{
+    /* margin-top: 2%; */
+    display: flex;
+    text-align: center;
+}
+
+.card{
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+#leftCard{
+    margin: 0;
+    width: 20%;
+    height: 80vh;
+    background-color:rgb(220, 195, 195);
+}
+
+#rightCard{
+    margin-right: 0;
+    margin-top: 0;
+    width: 20%;
+    height: 80vh;
+    background-color:rgb(220, 195, 195);
+}
+
+#mainCard{
+    margin-top: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 80%;
+    height: 100vh;
+    background-color:rgb(0, 0, 0);
+    opacity: 0.8;
+    color: white;
+}
+
+.discoverBtn{
+    background-color: aliceblue;
+    font-size: larger;
+    cursor: pointer;
+}
