@@ -26,7 +26,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-
+![Gif walkthrough of the website](src/assets/cool-cats.gif)
 
 ## Notes
 
