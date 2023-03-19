@@ -11,11 +11,15 @@ const MainView = () => {
     const [weight, setWeight] = useState('weight');
     const [selectedCharacter, setSelectedCharacter] = useState([]);
 
-    const url = 'https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=abys&api_key=live_1Rg1VoeW1VUHhwEXBuDJP9PPCWw59UwD0V1p3yC9cUBxmcaGFljiGHb5ViAUYchA';
+    //various breeds
+    const breedsID = ['beng', 'abys', 'pers', 'ebur', 'hima', 'chau', 'crex'];
+    const randBreedID = Math.floor(Math.random()*6);
+    
+    const url = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${breedsID[randBreedID]}&api_key=live_1Rg1VoeW1VUHhwEXBuDJP9PPCWw59UwD0V1p3yC9cUBxmcaGFljiGHb5ViAUYchA`;
     const submitDiscoverBtn = async () =>{
         const response = await fetch(url);
         const data = await response.json();
-        const randomSelector = Math.floor(Math.random() * 10);
+        const randomSelector = Math.floor(Math.random() * 9);
         setImageLink(data[randomSelector].url);
         document.querySelectorAll('.hidden').forEach(elem => elem.style.display = 'block');
         setName(data[randomSelector].breeds[0].name);
@@ -49,8 +53,8 @@ const MainView = () => {
 
             <div className='card' id="mainCard">
                 <div className="content">
-                    <h1>Awesome Cats</h1>
-                    <p>Cats around the world</p>
+                    <h1>Cool Cats</h1>
+                    <p>Find Cats from all around the world</p>
                     <p></p>
                     <div className='selectCharacter'>
                         <button className="button-1 hidden" role="button" onClick={nameHandler}>{name}</button>
